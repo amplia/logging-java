@@ -111,6 +111,11 @@ public class DefaultLoggingEventMutator
 		this.component = component;
 	}
 	
+	public void setAppComponent (final String component)
+	{
+		this.component = component;
+	}
+	
 	public void setNode (final String node)
 	{
 		this.node = node;
