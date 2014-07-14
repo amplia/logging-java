@@ -2,7 +2,7 @@
  * #%L
  * arkitech-logback-amqp-common
  * %%
- * Copyright (C) 2011 - 2012 Arkitech
+ * Copyright (C) 2011 - 2014 Arkitech
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ public abstract class AmqpAccessor<_Accessor_ extends AmqpRawAccessor>
 			throws InternalException
 	{
 		try {
-			return (new AmqpRawMessage (exchange, routingKey, this.serializer.getContentType (), this.serializer.getContentEncoding (), this.serializer.serialize (event)));
+			return (new AmqpRawMessage (exchange, routingKey, this.serializer.getContentType (), this.serializer.getContentEncoding (), event.getFormattedMessage().getBytes()));
 		} catch (final Throwable exception) {
 			throw (new InternalException ("amqp event accessor encountered an unknown error while serializing the event", exception));
 		}
